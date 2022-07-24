@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dbf1ca60b96c05468cf2a2ea8615fb5, type: 3}
+  m_Name: TwistyData_test
+  m_EditorClassIdentifier: 
+  speaker: jombo joe
+  dialogueData:
+  - hi my guy
+  - my name is rayan
+  bossSprite: {fileID: 21300000, guid: b3a5b489b223e0349a92628a0bfa723d, type: 3}
+  enemySprite: {fileID: 21300000, guid: 5ab088ec469b4664ebd8b19a69f2715b, type: 3}
+  storrySprite: {fileID: 21300000, guid: 5ab088ec469b4664ebd8b19a69f2715b, type: 3}

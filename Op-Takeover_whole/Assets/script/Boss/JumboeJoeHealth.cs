@@ -33,11 +33,11 @@ public class JumboeJoeHealth: MonoBehaviour
         if(health <=500 && health >= 375){
             jj.currentstate = JumboJoeManager.BossStates.punch;
         }
-        if(health <= 300 && health >= 250){
+        if(health <= 375 && health >= 250){
             jj.currentstate = JumboJoeManager.BossStates.follow;
         }
 
-        if(health <= 225  && health >=  125){
+        if(health <= 250  && health >=  125){
             jj.currentstate = JumboJoeManager.BossStates.backoff;
         }
 

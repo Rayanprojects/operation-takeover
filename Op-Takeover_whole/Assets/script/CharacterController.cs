@@ -48,7 +48,7 @@ public class CharacterController : MonoBehaviour
 
     [Header("Projectile")]
 
-    public GameObject bullet;
+    public GameObject bullet, bulletleft;
 
 
  
@@ -80,17 +80,11 @@ public class CharacterController : MonoBehaviour
         }
 
 
-        /*if(updated == false){
-            enemiesKillNum--;
-            updated = true;
-        }
-        updated  = false;*/
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, .2f, ground);
+    }
 
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 10f, ground);
-        
-
- 
-    
+    private void OnDrawGizmosSelected() {
+        Gizmos.DrawWireSphere(groundCheck.position, .2f);
     }
 
 
@@ -116,15 +110,16 @@ public class CharacterController : MonoBehaviour
 
 
 
-        if(Input.GetKey(KeyCode.Space) && isGrounded){
-            Time.timeScale = 0.1f;
-             Time.fixedDeltaTime = 0.02f * Time.timeScale;
-            if(jumpboost == false){
+        if(Input.GetKey(KeyCode.Space)){
+
+            if(isGrounded){
+               if(jumpboost == false){
               Jump();
               jumpboost = true;
             }
 
             jumpboost = true;
+            }
         } 
         else if(jumpboost){
             energy -= 1;
@@ -180,7 +175,7 @@ public class CharacterController : MonoBehaviour
    
 
     void Jump(){
-        rb.velocity = Vector2.up * jumpHeight;
+                 rb.velocity = Vector2.up * jumpHeight;
 
         anim.SetBool("isJumping", true);
         jumped = true;
@@ -191,7 +186,12 @@ public class CharacterController : MonoBehaviour
    IEnumerator Hit(float delay = 0){
       yield return new WaitForSeconds(delay);
 
+      if(!sr.flipX){
          Instantiate(bullet , attackPos.position, transform.rotation);
+      }
+      else if(sr.flipX){
+        Instantiate(bulletleft , leftattackPos.position, transform.rotation);
+      }
 
 
     //particle effect
